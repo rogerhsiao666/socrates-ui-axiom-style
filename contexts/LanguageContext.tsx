@@ -43,6 +43,7 @@ const translations = {
     'category.politics': 'Politics',
     'category.sports': 'Sports',
     'category.crypto': 'Crypto',
+    'category.entertainment': 'Entertainment',
     
     // Market Card
     'market.buyYes': 'Buy YES',
@@ -133,7 +134,35 @@ const translations = {
     'live.viewers': 'viewers',
     'live.watching': 'Watching',
     'live.chatPlaceholder': 'Type your message...',
-    'live.send': 'Send'
+    'live.send': 'Send',
+    
+    // Search and Filters
+    'search.searchTokens': 'Search tokens...',
+    'search.searchMarkets': 'Search markets...',
+    'filter.hotSectors': 'Hot Sectors:',
+    'filter.allCategories': 'All Categories',
+    'filter.newest': 'Newest',
+    'filter.volume': 'Volume',
+    'filter.ending': 'Ending Soon',
+    'filter.popular': 'Most Popular',
+    'filter.1minute': '1 minute',
+    'filter.5minutes': '5 minutes',
+    'filter.1hour': '1 hour',
+    'filter.6hours': '6 hours',
+    'filter.24hours': '24 hours',
+    
+    // Following Section Actions
+    'following.details': 'Details',
+    'following.copyTrading': 'Copy Trading',
+    'following.noRecords': 'No copy trading records',
+    'following.selectWallet': 'Select smart wallets to start copy trading',
+    
+    // Live Section
+    'live.popularStreams': '🔴 Hot Live Streams',
+    'live.streaming': 'Live Streaming',
+    'live.justCreated': 'Just created',
+    'live.risingHeat': 'Rising popularity',
+    'live.successfullyLaunched': 'Successfully launched'
   },
   zh: {
     // Navbar
@@ -167,6 +196,7 @@ const translations = {
     'category.politics': '政治',
     'category.sports': '体育',
     'category.crypto': '加密货币',
+    'category.entertainment': '娱乐',
     
     // Market Card
     'market.buyYes': '买入 YES',
@@ -257,7 +287,35 @@ const translations = {
     'live.viewers': '观看者',
     'live.watching': '正在观看',
     'live.chatPlaceholder': '输入您的消息...',
-    'live.send': '发送'
+    'live.send': '发送',
+    
+    // Search and Filters
+    'search.searchTokens': '搜索代币...',
+    'search.searchMarkets': '搜索市场...',
+    'filter.hotSectors': '热门板块:',
+    'filter.allCategories': '所有分类',
+    'filter.newest': '最新',
+    'filter.volume': '交易量',
+    'filter.ending': '即将结束',
+    'filter.popular': '最受欢迎',
+    'filter.1minute': '1分钟',
+    'filter.5minutes': '5分钟',
+    'filter.1hour': '1小时',
+    'filter.6hours': '6小时',
+    'filter.24hours': '24小时',
+    
+    // Following Section Actions
+    'following.details': '详情',
+    'following.copyTrading': '跟单',
+    'following.noRecords': '暂无跟单记录',
+    'following.selectWallet': '选择聪明钱包开始跟单投资',
+    
+    // Live Section
+    'live.popularStreams': '🔴 热门直播',
+    'live.streaming': '直播中', 
+    'live.justCreated': '刚刚创建',
+    'live.risingHeat': '热度上升中',
+    'live.successfullyLaunched': '已成功发射'
   }
 }
 
