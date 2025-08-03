@@ -150,7 +150,7 @@ export default function PredictionCard({
     <>
       <div 
         onClick={handleCardClick}
-        className="group bg-tertiary rounded-lg p-2 hover:bg-secondary transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#00FFAE]/10 cursor-pointer relative overflow-hidden border border-[#D9D9E0]"
+        className="group bg-tertiary rounded-lg p-2 hover:bg-secondary transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#00FFAE]/10 cursor-pointer relative overflow-hidden"
       >
         {/* Hot Badge */}
         {isHot && (
