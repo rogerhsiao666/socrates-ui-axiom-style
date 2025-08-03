@@ -51,9 +51,9 @@ const Navbar = () => {
                 <div className="relative">
                   <button
                     onClick={() => setShowWalletMenu(!showWalletMenu)}
-                    className="flex items-center space-x-2 bg-accent-green/20 border border-accent-green/30 text-accent-green px-4 py-2 rounded-lg hover:bg-accent-green/30 transition-colors animate-wallet-pulse"
+                    className="flex items-center space-x-2 bg-brand-500/20 border border-brand-500/30 text-brand-500 px-4 py-2 rounded-xl hover:bg-brand-500/30 transition-all duration-300 animate-glow-soft"
                   >
-                    <div className="w-2 h-2 bg-accent-green rounded-full animate-pulse" />
+                    <div className="w-2 h-2 bg-brand-500 rounded-full animate-pulse" />
                     <span className="font-medium web3-number">{formatAddress(address!)}</span>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
