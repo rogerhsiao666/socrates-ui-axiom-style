@@ -731,13 +731,12 @@ export default function Home() {
                 <button
                   key={tab.key}
                   onClick={() => setActiveTab(tab.key)}
-                  className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:scale-105 flex items-center space-x-2 ${
+                  className={`px-4 py-2 font-medium transition-all duration-200 ${
                     activeTab === tab.key
-                      ? 'bg-[#00FFAE] text-black'
-                      : 'text-secondary hover:text-primary hover:bg-tertiary'
+                      ? 'text-[#00FFAE]'
+                      : 'text-secondary hover:text-primary'
                   }`}
                 >
-                  <span>{tab.icon}</span>
                   <span>{tab.label}</span>
                 </button>
               ))}
@@ -1031,8 +1030,8 @@ export default function Home() {
                           key={market.id} 
                           className={`hover:scale-105 transition-all duration-500 animate-fade-in ${
                             isNewlyAdded && index < 3 
-                              ? 'ring-2 ring-green-500 shadow-lg shadow-green-500/20 animate-pulse' 
-                              : ''
+                              ? 'border-2 border-green-500 shadow-lg shadow-green-500/20 animate-pulse rounded-lg' 
+                              : 'border-2 border-green-500 rounded-lg'
                           }`}
                           style={{ animationDelay: `${index * 50}ms` }}
                         >
@@ -1072,8 +1071,8 @@ export default function Home() {
                           key={market.id} 
                           className={`hover:scale-105 transition-all duration-500 animate-fade-in ${
                             isNewlyAdded && index < 3 
-                              ? 'ring-2 ring-blue-500 shadow-lg shadow-blue-500/20 animate-pulse' 
-                              : ''
+                              ? 'border-2 border-orange-500 shadow-lg shadow-orange-500/20 animate-pulse rounded-lg' 
+                              : 'border-2 border-orange-500 rounded-lg'
                           }`}
                           style={{ animationDelay: `${index * 50}ms` }}
                         >

@@ -25,19 +25,14 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 glass-effect border-b border-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-accent-green to-primary-400 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">P</span>
-            </div>
-            <span className="text-xl font-bold text-primary">PredictMarket</span>
-          </Link>
+          {/* Empty space for logo area */}
+          <div className="flex-1"></div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             <Link 
               href="/create" 
-              className="btn-primary"
+              className="text-secondary hover:text-primary transition-colors font-medium"
             >
               {t('nav.createMarket')}
             </Link>
