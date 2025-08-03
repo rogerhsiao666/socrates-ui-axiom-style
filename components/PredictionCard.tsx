@@ -150,7 +150,7 @@ export default function PredictionCard({
     <>
       <div 
         onClick={handleCardClick}
-        className="group bg-tertiary rounded-lg p-2 hover:bg-secondary transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#00FFAE]/10 cursor-pointer relative overflow-hidden border border-gray-700"
+        className="group bg-tertiary rounded-lg p-2 hover:bg-secondary transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#00FFAE]/10 cursor-pointer relative overflow-hidden border border-[#D9D9E0]"
       >
         {/* Hot Badge */}
         {isHot && (
@@ -162,16 +162,6 @@ export default function PredictionCard({
         {/* Status Badge */}
         {getStatusBadge()}
 
-        {/* Cover Image (Optional) */}
-        {imageUrl && (
-          <div className="relative h-20 mb-2 rounded-lg overflow-hidden">
-            <img 
-              src={imageUrl} 
-              alt={title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            />
-          </div>
-        )}
 
         {/* Event Icon & Title */}
         <div className="flex items-start space-x-2 mb-2">
@@ -270,10 +260,10 @@ export default function PredictionCard({
                  key={option.id}
                  onClick={(e) => handleBuyClick(option.id, e)}
                  disabled={!isConnected}
-                 className="bg-secondary hover:bg-tertiary text-primary font-semibold py-1.5 px-2 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed text-xs border-2 border-transparent hover:border-opacity-50"
+                 className="hover:bg-tertiary py-1.5 px-2 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed text-xs font-bold"
                  style={{ 
-                   backgroundColor: option.color,
-                   color: '#000'
+                   backgroundColor: option.id === 'yes' ? '#30A46C' : '#E5484D',
+                   color: '#FFF'
                  }}
                >
                  {t('market.buy')} {option.label}
