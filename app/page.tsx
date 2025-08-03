@@ -771,26 +771,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Action Buttons */}
-              <div className="flex items-center space-x-2">
-                {/* PredictMarket Button */}
-                <button className="flex items-center space-x-2 bg-[#00FFAE] hover:bg-[#00D4AA] text-black px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:scale-105">
-                  <span>📊</span>
-                  <span className="hidden xl:block">PredictMarket</span>
-                </button>
-
-                {/* Create Market Button */}
-                <button className="flex items-center space-x-1 bg-[#00FFAE] hover:bg-[#00D4AA] text-black px-3 py-2 rounded-lg font-medium transition-all duration-200 hover:scale-105 text-sm">
-                  <span>Create</span>
-                  <span>Market</span>
-                </button>
-
-                {/* Connect Wallet Button */}
-                <button className="flex items-center space-x-1 bg-[#00FFAE] hover:bg-[#00D4AA] text-black px-3 py-2 rounded-lg font-medium transition-all duration-200 hover:scale-105 text-sm">
-                  <span>Connect</span>
-                  <span className="hidden xl:block">Wallet</span>
-                </button>
-              </div>
 
               {/* Theme & Language Controls */}
               <Navbar />
