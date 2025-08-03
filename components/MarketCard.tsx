@@ -116,7 +116,7 @@ const MarketCard = ({
       {/* Content */}
       <div className="p-2 space-y-4">
         {/* Title */}
-        <h3 className="text-lg font-semibold text-primary line-clamp-2 group-hover:text-accent-green transition-colors">
+        <h3 className="font-semibold text-primary line-clamp-2 group-hover:text-accent-green transition-colors" style={{ fontSize: '1rem' }}>
           {title}
         </h3>
 

@@ -1255,173 +1255,263 @@ export default function Home() {
               <h2 className="text-xl font-bold text-white mb-4">🔴 热门直播</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[
-                  { id: 1, title: 'CryptoKing - BTC突破分析', topic: '比特币即将突破12万美元？技术分析详解', viewers: 2847, avatar: '👑', bgType: 'chart', web3Visual: 'btc-chart' },
-                  { id: 2, title: 'MarketGuru - 实时交易', topic: '跟着我一起抓住市场机会', viewers: 1923, avatar: '📈', bgType: 'defi', web3Visual: 'uniswap-logo' },
-                  { id: 3, title: 'PredictionMaster - 预测解析', topic: '今日热门预测市场深度分析', viewers: 3456, avatar: '🔮', bgType: 'nft', web3Visual: 'opensea-activity' },
-                  { id: 4, title: 'TechAnalyst - 技术指标', topic: 'RSI与MACD双重信号确认', viewers: 1567, avatar: '📊', bgType: 'dao', web3Visual: 'governance-vote' },
-                  { id: 5, title: 'WhaleWatcher - 巨鲸动向', topic: '监控大户资金流向', viewers: 2134, avatar: '🐋', bgType: 'metaverse', web3Visual: 'metamask-connect' },
-                  { id: 6, title: 'NewsTrader - 消息面分析', topic: '重大新闻对市场的影响', viewers: 987, avatar: '📰', bgType: 'ethereum', web3Visual: 'eth-staking' }
+                  { id: 1, title: 'CryptoKing - BTC突破分析', topic: '比特币即将突破12万美元？技术分析详解', viewers: 2847, avatar: '👑', bgType: 'trading-desk', streamType: 'multi-cam' },
+                  { id: 2, title: 'MarketGuru - 实时交易', topic: '跟着我一起抓住市场机会', viewers: 1923, avatar: '📈', bgType: 'trading-floor', streamType: 'screen-share' },
+                  { id: 3, title: 'PredictionMaster - 预测解析', topic: '今日热门预测市场深度分析', viewers: 3456, avatar: '🔮', bgType: 'analysis-room', streamType: 'dual-screen' },
+                  { id: 4, title: 'TechAnalyst - 技术指标', topic: 'RSI与MACD双重信号确认', viewers: 1567, avatar: '📊', bgType: 'chart-analysis', streamType: 'overlay-chat' },
+                  { id: 5, title: 'WhaleWatcher - 巨鲸动向', topic: '监控大户资金流向', viewers: 2134, avatar: '🐋', bgType: 'whale-tracking', streamType: 'multi-viewer' },
+                  { id: 6, title: 'NewsTrader - 消息面分析', topic: '重大新闻对市场的影响', viewers: 987, avatar: '📰', bgType: 'news-desk', streamType: 'co-stream' }
                 ].map((stream) => (
                   <div key={stream.id} className="bg-[#0F0F0F] rounded-lg overflow-hidden hover:bg-[#1F1F1F] transition-colors cursor-pointer group">
                     <div className="aspect-video bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 relative overflow-hidden">
-                      {/* Web3 相关视频内容 */}
-                      <div className="absolute inset-0 bg-black bg-opacity-20">
-                        {/* 根据类型显示不同的Web3视觉元素 */}
-                        {stream.bgType === 'chart' && (
+                      {/* Twitch-style Trading Stream Content */}
+                      <div className="absolute inset-0 bg-black bg-opacity-30">
+                        {/* Multi-camera Trading Desk Setup */}
+                        {stream.bgType === 'trading-desk' && (
                           <>
-                            {/* BTC 价格图表 */}
-                            <div className="absolute top-4 left-4 right-4">
-                              <div className="flex items-end space-x-1 h-16">
-                                {Array.from({ length: 20 }).map((_, i) => (
-                                  <div 
-                                    key={i} 
-                                    className={`w-2 bg-gradient-to-t ${
-                                      Math.random() > 0.5 ? 'from-green-400 to-green-600' : 'from-red-400 to-red-600'
-                                    } opacity-70`}
-                                    style={{ height: `${Math.random() * 60 + 20}%` }}
-                                  />
-                                ))}
-                              </div>
-                            </div>
-                            {/* Bitcoin 图标 */}
-                            <div className="absolute top-4 left-4 w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center text-white text-sm font-bold">₿</div>
-                          </>
-                        )}
-                        
-                        {stream.bgType === 'defi' && (
-                          <>
-                            {/* DeFi 流动性池视觉 */}
-                            <div className="absolute inset-4 flex items-center justify-center">
-                              <div className="relative">
-                                <div className="w-20 h-20 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full opacity-60 animate-pulse"></div>
-                                <div className="absolute top-2 left-2 w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full opacity-70"></div>
-                                <div className="absolute top-4 left-4 w-12 h-12 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center text-white text-xs">🦄</div>
-                              </div>
-                            </div>
-                            {/* Uniswap 风格的 swap 箭头 */}
-                            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white">
-                              <svg className="w-6 h-6 animate-bounce" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M7 14l5-5 5 5H7z"/>
-                              </svg>
-                            </div>
-                          </>
-                        )}
-                        
-                        {stream.bgType === 'nft' && (
-                          <>
-                            {/* NFT 收藏展示 */}
-                            <div className="absolute inset-4 grid grid-cols-3 gap-2">
-                              {Array.from({ length: 6 }).map((_, i) => (
-                                <div key={i} className={`aspect-square rounded-lg ${
-                                  ['bg-gradient-to-br from-purple-400 to-pink-600', 
-                                   'bg-gradient-to-br from-blue-400 to-purple-600',
-                                   'bg-gradient-to-br from-green-400 to-blue-600',
-                                   'bg-gradient-to-br from-yellow-400 to-orange-600',
-                                   'bg-gradient-to-br from-red-400 to-pink-600',
-                                   'bg-gradient-to-br from-indigo-400 to-purple-600'][i]
-                                } opacity-80 flex items-center justify-center text-white text-lg`}>
-                                  {['🎨', '👾', '🚀', '💎', '🔥', '⚡'][i]}
+                            {/* Main Trading Screen */}
+                            <div className="absolute inset-2 bg-gray-900 rounded-lg overflow-hidden">
+                              {/* Multiple Monitor Setup */}
+                              <div className="grid grid-cols-2 h-full">
+                                <div className="bg-green-900/20 p-2 border-r border-gray-700">
+                                  {/* Chart Area */}
+                                  <div className="h-full flex flex-col">
+                                    <div className="text-green-400 text-xs mb-1">BTC/USDT</div>
+                                    <div className="flex-1 flex items-end space-x-1">
+                                      {Array.from({ length: 12 }).map((_, i) => (
+                                        <div key={i} className={`w-2 ${Math.random() > 0.5 ? 'bg-green-500' : 'bg-red-500'} opacity-70`} style={{ height: `${Math.random() * 80 + 20}%` }} />
+                                      ))}
+                                    </div>
+                                  </div>
                                 </div>
-                              ))}
-                            </div>
-                          </>
-                        )}
-                        
-                        {stream.bgType === 'dao' && (
-                          <>
-                            {/* DAO 治理投票界面 */}
-                            <div className="absolute inset-4 flex flex-col justify-center space-y-2">
-                              <div className="bg-black bg-opacity-50 rounded p-2">
-                                <div className="text-white text-xs mb-1">提案 #42: 增加流动性奖励</div>
-                                <div className="flex space-x-2">
-                                  <div className="flex-1 bg-green-500 h-2 rounded-full"></div>
-                                  <div className="w-8 bg-red-500 h-2 rounded-full"></div>
+                                <div className="bg-blue-900/20 p-2">
+                                  {/* Order Book */}
+                                  <div className="text-blue-400 text-xs mb-1">Order Book</div>
+                                  <div className="space-y-1">
+                                    {Array.from({ length: 6 }).map((_, i) => (
+                                      <div key={i} className="flex justify-between text-xs">
+                                        <span className="text-red-400">{(95000 + i * 100).toLocaleString()}</span>
+                                        <span className="text-gray-400">{(Math.random() * 5).toFixed(2)}</span>
+                                      </div>
+                                    ))}
+                                  </div>
                                 </div>
-                                <div className="text-green-400 text-xs mt-1">赞成: 87.5%</div>
                               </div>
-                              <div className="text-center">
-                                <div className="inline-flex items-center space-x-1 bg-blue-500 px-2 py-1 rounded text-white text-xs">
-                                  <span>🗳️</span>
-                                  <span>投票中</span>
+                              {/* Streamer Camera Overlay */}
+                              <div className="absolute bottom-4 right-4 w-20 h-16 bg-purple-600 rounded-lg flex items-center justify-center text-white border-2 border-purple-400">
+                                {stream.avatar}
+                              </div>
+                              {/* Live Chat Overlay */}
+                              <div className="absolute top-4 left-4 bg-black bg-opacity-70 rounded p-2 max-w-32">
+                                <div className="text-white text-xs space-y-1">
+                                  <div>💎 DiamondHands: HODL!</div>
+                                  <div>🚀 MoonBoy: To the moon!</div>
+                                  <div>📈 Trader123: Bullish!</div>
                                 </div>
                               </div>
                             </div>
                           </>
                         )}
                         
-                        {stream.bgType === 'metaverse' && (
+                        {/* Trading Floor with Multiple Screens */}
+                        {stream.bgType === 'trading-floor' && (
                           <>
-                            {/* Metaverse/Web3 钱包连接 */}
-                            <div className="absolute inset-4 flex items-center justify-center">
-                              <div className="bg-black bg-opacity-60 rounded-lg p-4 text-center">
-                                <div className="w-12 h-12 bg-orange-500 rounded-lg mx-auto mb-2 flex items-center justify-center">
-                                  🦊
+                            <div className="absolute inset-2 bg-gray-900 rounded-lg p-2">
+                              {/* Multiple Screen Layout */}
+                              <div className="grid grid-cols-3 gap-1 h-full">
+                                <div className="bg-red-900/20 rounded flex items-center justify-center">
+                                  <div className="text-center">
+                                    <div className="text-red-400 text-lg font-bold">-2.4%</div>
+                                    <div className="text-red-300 text-xs">NASDAQ</div>
+                                  </div>
                                 </div>
-                                <div className="text-white text-xs">MetaMask</div>
-                                <div className="text-green-400 text-xs">已连接</div>
-                                <div className="text-gray-400 text-xs font-mono">0x7a...8f2c</div>
+                                <div className="bg-green-900/20 rounded flex items-center justify-center">
+                                  <div className="text-center">
+                                    <div className="text-green-400 text-lg font-bold">+5.7%</div>
+                                    <div className="text-green-300 text-xs">BTC</div>
+                                  </div>
+                                </div>
+                                <div className="bg-blue-900/20 rounded flex items-center justify-center">
+                                  <div className="text-center">
+                                    <div className="text-blue-400 text-lg font-bold">+1.2%</div>
+                                    <div className="text-blue-300 text-xs">ETH</div>
+                                  </div>
+                                </div>
+                              </div>
+                              {/* Co-streamer windows */}
+                              <div className="absolute bottom-2 left-2 flex space-x-1">
+                                <div className="w-12 h-10 bg-purple-600 rounded border border-purple-400 flex items-center justify-center text-xs">👤</div>
+                                <div className="w-12 h-10 bg-blue-600 rounded border border-blue-400 flex items-center justify-center text-xs">👨‍💼</div>
                               </div>
                             </div>
                           </>
                         )}
                         
-                        {stream.bgType === 'ethereum' && (
+                        {/* Analysis Room with Dual Screen */}
+                        {stream.bgType === 'analysis-room' && (
                           <>
-                            {/* Ethereum Staking 界面 */}
-                            <div className="absolute inset-4 flex items-center justify-center">
-                              <div className="text-center">
-                                <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-purple-600 rounded-full mx-auto mb-2 flex items-center justify-center text-white text-2xl animate-pulse">
-                                  Ξ
+                            <div className="absolute inset-2 bg-gray-900 rounded-lg">
+                              <div className="grid grid-rows-2 h-full gap-1 p-1">
+                                {/* Top: Chart Analysis */}
+                                <div className="bg-indigo-900/20 rounded p-2">
+                                  <div className="flex justify-between items-start mb-2">
+                                    <div className="text-indigo-400 text-xs">Technical Analysis</div>
+                                    <div className="text-green-400 text-xs">RSI: 67.2</div>
+                                  </div>
+                                  <div className="flex items-end space-x-1 h-8">
+                                    {Array.from({ length: 16 }).map((_, i) => (
+                                      <div key={i} className="w-1 bg-gradient-to-t from-indigo-600 to-indigo-400 opacity-80" style={{ height: `${Math.random() * 100}%` }} />
+                                    ))}
+                                  </div>
                                 </div>
-                                <div className="bg-black bg-opacity-60 rounded px-2 py-1">
-                                  <div className="text-blue-400 text-xs">ETH Staking</div>
-                                  <div className="text-green-400 text-xs">APR: 4.2%</div>
-                                  <div className="text-white text-xs">32.0 ETH</div>
+                                {/* Bottom: News Feed */}
+                                <div className="bg-orange-900/20 rounded p-2">
+                                  <div className="text-orange-400 text-xs mb-1">Market News</div>
+                                  <div className="text-white text-xs space-y-1">
+                                    <div>🔥 Bitcoin ETF approval pending</div>
+                                    <div>📈 Major whale movement detected</div>
+                                  </div>
                                 </div>
+                              </div>
+                              {/* Streamer in corner */}
+                              <div className="absolute top-4 right-4 w-16 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded border-2 border-white flex items-center justify-center">
+                                {stream.avatar}
                               </div>
                             </div>
                           </>
                         )}
                         
-                        {/* 主播头像 */}
-                        <div className="absolute bottom-16 left-4">
-                          <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-2xl border-2 border-white">
-                            {stream.avatar}
+                        {/* Chart Analysis with Overlay Chat */}
+                        {stream.bgType === 'chart-analysis' && (
+                          <>
+                            <div className="absolute inset-2 bg-gray-900 rounded-lg overflow-hidden">
+                              {/* Full Screen Chart */}
+                              <div className="h-full bg-green-900/10 p-2">
+                                <div className="flex justify-between items-center mb-2">
+                                  <div className="text-green-400 text-xs">BTC/USD • 1H</div>
+                                  <div className="text-green-400 text-sm font-bold">$96,847.23</div>
+                                </div>
+                                <div className="h-full flex items-end justify-center space-x-1">
+                                  {Array.from({ length: 20 }).map((_, i) => (
+                                    <div key={i} className={`w-2 ${Math.random() > 0.6 ? 'bg-green-500' : 'bg-red-500'} opacity-70`} style={{ height: `${Math.random() * 90 + 10}%` }} />
+                                  ))}
+                                </div>
+                              </div>
+                              {/* Floating Chat */}
+                              <div className="absolute top-4 right-4 bg-black bg-opacity-80 rounded p-2 w-24">
+                                <div className="text-white text-xs space-y-1">
+                                  <div>🚀 Bullish</div>
+                                  <div>💎 HODL</div>
+                                  <div>📊 TA looks good</div>
+                                </div>
+                              </div>
+                              {/* Streamer overlay */}
+                              <div className="absolute bottom-4 left-4 w-20 h-16 bg-gray-800 rounded border-2 border-green-400 flex items-center justify-center">
+                                {stream.avatar}
+                              </div>
+                            </div>
+                          </>
+                        )}
+                        
+                        {/* Whale Tracking with Multi-viewer */}
+                        {stream.bgType === 'whale-tracking' && (
+                          <>
+                            <div className="absolute inset-2 bg-gray-900 rounded-lg p-2">
+                              <div className="grid grid-cols-2 gap-2 h-full">
+                                {/* Whale Alerts */}
+                                <div className="bg-yellow-900/20 rounded p-2">
+                                  <div className="text-yellow-400 text-xs mb-2">🐋 Whale Alerts</div>
+                                  <div className="space-y-1">
+                                    <div className="text-white text-xs bg-yellow-600/20 rounded p-1">
+                                      <div>1,000 BTC moved</div>
+                                      <div className="text-yellow-300">Binance → Unknown</div>
+                                    </div>
+                                    <div className="text-white text-xs bg-red-600/20 rounded p-1">
+                                      <div>500 ETH sold</div>
+                                      <div className="text-red-300">Whale #47</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                {/* Portfolio Tracker */}
+                                <div className="bg-blue-900/20 rounded p-2">
+                                  <div className="text-blue-400 text-xs mb-2">Portfolio Tracker</div>
+                                  <div className="space-y-1">
+                                    <div className="flex justify-between text-xs">
+                                      <span className="text-white">BTC</span>
+                                      <span className="text-green-400">+12.5%</span>
+                                    </div>
+                                    <div className="flex justify-between text-xs">
+                                      <span className="text-white">ETH</span>
+                                      <span className="text-red-400">-3.2%</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              {/* Multiple viewer windows */}
+                              <div className="absolute bottom-2 right-2 flex space-x-1">
+                                <div className="w-8 h-6 bg-purple-600 rounded text-xs flex items-center justify-center">👤</div>
+                                <div className="w-8 h-6 bg-blue-600 rounded text-xs flex items-center justify-center">🐋</div>
+                                <div className="w-8 h-6 bg-green-600 rounded text-xs flex items-center justify-center">📊</div>
+                              </div>
+                            </div>
+                          </>
+                        )}
+                        
+                        {/* News Desk Co-stream */}
+                        {stream.bgType === 'news-desk' && (
+                          <>
+                            <div className="absolute inset-2 bg-gray-900 rounded-lg">
+                              <div className="grid grid-cols-2 h-full">
+                                {/* News Feed */}
+                                <div className="bg-red-900/20 p-2 border-r border-gray-700">
+                                  <div className="text-red-400 text-xs mb-2">📰 Breaking News</div>
+                                  <div className="space-y-2">
+                                    <div className="bg-red-600/20 rounded p-1">
+                                      <div className="text-white text-xs">Fed considers rate cut</div>
+                                    </div>
+                                    <div className="bg-green-600/20 rounded p-1">
+                                      <div className="text-white text-xs">Bitcoin ETF flows surge</div>
+                                    </div>
+                                    <div className="bg-yellow-600/20 rounded p-1">
+                                      <div className="text-white text-xs">Major exchange hack reported</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                {/* Co-host section */}
+                                <div className="bg-blue-900/20 p-2 flex flex-col">
+                                  <div className="text-blue-400 text-xs mb-2">Market Impact</div>
+                                  <div className="flex-1 flex items-center justify-center">
+                                    <div className="w-16 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded border-2 border-white flex items-center justify-center">
+                                      👨‍💼
+                                    </div>
+                                  </div>
+                                  <div className="text-white text-xs text-center">Market Analyst</div>
+                                </div>
+                              </div>
+                              {/* Main host */}
+                              <div className="absolute bottom-4 left-4 w-20 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded border-2 border-white flex items-center justify-center">
+                                {stream.avatar}
+                              </div>
+                            </div>
+                          </>
+                        )}
+                        
+                        {/* Real-time Trading Data Overlay */}
+                        <div className="absolute top-2 right-2 bg-black bg-opacity-70 rounded px-2 py-1">
+                          <div className="text-green-400 text-xs font-mono">
+                            {stream.bgType === 'trading-desk' && `BTC: $${(Math.random() * 10000 + 90000).toFixed(0)}`}
+                            {stream.bgType === 'trading-floor' && `Volume: $${(Math.random() * 100 + 500).toFixed(1)}M`}
+                            {stream.bgType === 'analysis-room' && `RSI: ${(Math.random() * 40 + 30).toFixed(1)}`}
+                            {stream.bgType === 'chart-analysis' && `Support: $${(Math.random() * 5000 + 90000).toFixed(0)}`}
+                            {stream.bgType === 'whale-tracking' && `Whales: ${Math.floor(Math.random() * 50 + 200)} active`}
+                            {stream.bgType === 'news-desk' && `Breaking: ${Math.floor(Math.random() * 20 + 5)} stories`}
                           </div>
                         </div>
                         
-                        {/* 实时数据根据类型显示 */}
-                        <div className="absolute top-4 right-4 bg-black bg-opacity-60 rounded px-2 py-1">
-                          {stream.bgType === 'chart' && (
-                            <div className="text-green-400 text-xs font-mono">
-                              BTC: ${(Math.random() * 10000 + 90000).toFixed(0)}
-                            </div>
-                          )}
-                          {stream.bgType === 'defi' && (
-                            <div className="text-purple-400 text-xs font-mono">
-                              TVL: ${(Math.random() * 100 + 400).toFixed(1)}M
-                            </div>
-                          )}
-                          {stream.bgType === 'nft' && (
-                            <div className="text-pink-400 text-xs font-mono">
-                              Floor: {(Math.random() * 5 + 1).toFixed(1)} ETH
-                            </div>
-                          )}
-                          {stream.bgType === 'dao' && (
-                            <div className="text-blue-400 text-xs font-mono">
-                              Voters: {Math.floor(Math.random() * 1000 + 2000)}
-                            </div>
-                          )}
-                          {stream.bgType === 'metaverse' && (
-                            <div className="text-orange-400 text-xs font-mono">
-                              Gas: {Math.floor(Math.random() * 50 + 20)} gwei
-                            </div>
-                          )}
-                          {stream.bgType === 'ethereum' && (
-                            <div className="text-blue-400 text-xs font-mono">
-                              ETH: ${(Math.random() * 1000 + 3000).toFixed(0)}
-                            </div>
-                          )}
+                        {/* Viewer Count with animated effect */}
+                        <div className="absolute bottom-2 right-2 bg-red-600 text-white px-2 py-1 rounded-full text-xs font-bold flex items-center space-x-1 animate-pulse">
+                          <div className="w-2 h-2 bg-white rounded-full animate-ping"></div>
+                          <span>{stream.viewers.toLocaleString()}</span>
                         </div>
                       </div>
                       

@@ -162,7 +162,7 @@ export default function PredictionCard({
           </div>
           <div className="flex-1">
             <div className="flex items-start justify-between mb-1">
-              <h3 className="text-primary font-semibold text-sm leading-tight group-hover:text-[#00FFAE] transition-colors line-clamp-2 flex-1 pr-2">
+              <h3 className="text-primary font-semibold leading-tight group-hover:text-[#00FFAE] transition-colors line-clamp-2 flex-1 pr-2" style={{ fontSize: '1rem' }}>
                 {title}
                 {isHot && (
                   <span className="ml-1">

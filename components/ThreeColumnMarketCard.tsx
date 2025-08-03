@@ -84,7 +84,7 @@ export default function ThreeColumnMarketCard({ market, onCardClick }: ThreeColu
         </div>
 
         {/* Title */}
-        <h3 className="text-sm font-semibold text-white leading-tight line-clamp-2 group-hover:text-green-400 transition-colors duration-200">
+        <h3 className="font-semibold text-white leading-tight line-clamp-2 group-hover:text-green-400 transition-colors duration-200" style={{ fontSize: '1rem' }}>
           {market.title}
         </h3>
 

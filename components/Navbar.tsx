@@ -44,8 +44,8 @@ const Navbar = () => {
               {t('nav.myMarkets')}
             </Link>
             
-            {/* Control Group: Wallet, Theme, Language with 8px spacing */}
-            <div className="flex items-center space-x-2">
+            {/* Control Group: Wallet, Theme, Language with 16px spacing */}
+            <div className="flex items-center space-x-4">
               {/* Wallet Connection */}
               {isConnected ? (
                 <div className="relative">
