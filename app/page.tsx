@@ -785,15 +785,8 @@ export default function Home() {
                   <span>Market</span>
                 </button>
 
-                {/* My Markets Button */}
-                <button className="flex items-center space-x-1 bg-tertiary hover:bg-secondary text-primary px-3 py-2 rounded-lg font-medium transition-all duration-200 hover:scale-105 text-sm border border-secondary">
-                  <span>My</span>
-                  <span>Markets</span>
-                </button>
-
                 {/* Connect Wallet Button */}
                 <button className="flex items-center space-x-1 bg-[#00FFAE] hover:bg-[#00D4AA] text-black px-3 py-2 rounded-lg font-medium transition-all duration-200 hover:scale-105 text-sm">
-                  <span>💼</span>
                   <span>Connect</span>
                   <span className="hidden xl:block">Wallet</span>
                 </button>
