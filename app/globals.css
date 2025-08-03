@@ -99,7 +99,7 @@
   }
   
   .card {
-    @apply rounded-2xl border p-6 transition-all duration-200 hover:scale-[1.02];
+    @apply rounded-2xl border p-6 transition-all duration-200;
   }
   
   .dark .card {
@@ -111,7 +111,7 @@
   }
   
   .prediction-card {
-    @apply rounded-2xl p-4 transition-all duration-300 hover:scale-[1.02] cursor-pointer;
+    @apply rounded-2xl p-4 transition-all duration-300 cursor-pointer;
   }
   
   .dark .prediction-card {

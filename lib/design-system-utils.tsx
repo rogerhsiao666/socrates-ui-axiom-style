@@ -51,7 +51,7 @@ export const getCardClasses = (
   };
   
   const interactiveClasses = interactive 
-    ? 'hover:scale-[1.02] hover:shadow-xl transition-all duration-300 cursor-pointer' 
+    ? 'hover:shadow-xl transition-all duration-300 cursor-pointer' 
     : '';
   
   return cn(baseClasses, variantClasses[variant], interactiveClasses);

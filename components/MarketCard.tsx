@@ -84,7 +84,7 @@ const MarketCard = ({
 
   return (
     <div 
-      className="card group cursor-pointer transform hover:scale-[1.02] animate-fade-in"
+      className="card group cursor-pointer transform animate-fade-in"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

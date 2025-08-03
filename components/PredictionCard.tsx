@@ -150,7 +150,7 @@ export default function PredictionCard({
     <>
       <div 
         onClick={handleCardClick}
-        className="group bg-tertiary rounded-lg p-2 hover:bg-secondary transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#00FFAE]/10 cursor-pointer relative overflow-hidden"
+        className="group bg-tertiary rounded-lg p-2 hover:bg-secondary transition-all duration-300 hover:shadow-xl hover:shadow-[#00FFAE]/10 cursor-pointer relative overflow-hidden"
       >
         {/* Hot Badge */}
         {isHot && (
@@ -159,8 +159,6 @@ export default function PredictionCard({
           </div>
         )}
 
-        {/* Status Badge */}
-        {getStatusBadge()}
 
 
         {/* Event Icon & Title */}
@@ -169,9 +167,42 @@ export default function PredictionCard({
             {icon}
           </div>
           <div className="flex-1">
-            <h3 className="text-primary font-semibold text-sm leading-tight mb-1 group-hover:text-[#00FFAE] transition-colors line-clamp-2">
-              {title}
-            </h3>
+            <div className="flex items-start justify-between mb-1">
+              <h3 className="text-primary font-semibold text-sm leading-tight group-hover:text-[#00FFAE] transition-colors line-clamp-2 flex-1 pr-2">
+                {title}
+                {isHot && (
+                  <span className="ml-1">
+                    {Math.random() > 0.66 ? '🔥🔥🔥' : Math.random() > 0.33 ? '🔥🔥' : '🔥'}
+                  </span>
+                )}
+              </h3>
+              {getStatusBadge() && (
+                <div className="flex-shrink-0">
+                  {(() => {
+                    switch (status) {
+                      case 'active':
+                        return (
+                          <span className="bg-[#00FFAE] text-black text-xs font-bold px-2 py-1 rounded-full">
+                            {t('market.trading')}
+                          </span>
+                        )
+                      case 'ending_soon':
+                        return (
+                          <span className="bg-[#FF3D5A] text-white text-xs font-bold px-2 py-1 rounded-full">
+                            {t('market.endingSoon')}
+                          </span>
+                        )
+                      case 'ended':
+                        return (
+                          <span className="bg-gray-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                            {t('market.ended')}
+                          </span>
+                        )
+                    }
+                  })()} 
+                </div>
+              )}
+            </div>
             
             {/* Tags */}
             <div className="flex flex-wrap gap-1 mb-1">

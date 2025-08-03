@@ -764,8 +764,8 @@ export default function Home() {
                   </svg>
               </div>
 
-              {/* Balance Display */}
-              <div className="flex items-center space-x-4">
+              {/* Balance Display - Hidden by default */}
+              <div className="hidden items-center space-x-4">
                 <div className="bg-tertiary border border-secondary rounded-lg px-4 py-2">
                   <div className="text-xs text-secondary">文件夹余额</div>
                   <div className="text-primary font-semibold">$3,247.89</div>
@@ -1034,7 +1034,7 @@ export default function Home() {
                       return (
                         <div 
                           key={market.id} 
-                          className={`hover:scale-105 transition-all duration-500 animate-fade-in ${
+                          className={`transition-all duration-500 animate-fade-in ${
                             isNewlyAdded && index < 3 
                               ? 'border-2 border-green-500 shadow-lg shadow-green-500/20 animate-pulse rounded-lg' 
                               : 'border-2 border-green-500 rounded-lg'
@@ -1075,7 +1075,7 @@ export default function Home() {
                       return (
                         <div 
                           key={market.id} 
-                          className={`hover:scale-105 transition-all duration-500 animate-fade-in ${
+                          className={`transition-all duration-500 animate-fade-in ${
                             isNewlyAdded && index < 3 
                               ? 'border-2 border-orange-500 shadow-lg shadow-orange-500/20 animate-pulse rounded-lg' 
                               : 'border-2 border-orange-500 rounded-lg'
@@ -1114,7 +1114,7 @@ export default function Home() {
                     launchedMarkets.map((market, index) => (
                       <div 
                         key={market.id} 
-                        className="hover:scale-105 transition-all duration-300 animate-fade-in" 
+                        className="transition-all duration-300 animate-fade-in" 
                         style={{ animationDelay: `${index * 100}ms` }}
                       >
                         <PredictionCard 
@@ -1153,7 +1153,7 @@ export default function Home() {
               {/* 钱包列表 */}
               <div className="space-y-3">
                 {smartWallets.map((wallet, index) => (
-                  <div key={wallet.id} className="grid grid-cols-12 gap-4 items-center rounded-xl p-4 hover:bg-primary transition-colors">
+                  <div key={wallet.id} className="grid grid-cols-12 gap-4 items-center rounded-xl p-4 hover:bg-primary transition-colors border-b border-gray-700 last:border-b-0">
                     {/* 钱包信息 */}
                     <div className="col-span-2 flex items-center space-x-3">
                       <div className="relative">
