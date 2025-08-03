@@ -170,7 +170,6 @@ export default function PredictionCard({
               alt={title}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
           </div>
         )}
 
@@ -218,7 +217,7 @@ export default function PredictionCard({
          <div className="flex items-center justify-between mb-2">
            {marketOptions.map((option, index) => (
              <div key={option.id} className="flex items-center space-x-1">
-               <span className="text-xs">{option.avatar || '•'}</span>
+               <div className="w-2 h-2 rounded-full" style={{ backgroundColor: option.color }}></div>
                <span className="text-primary text-xs font-medium">{option.label}</span>
                <span className="text-primary font-bold text-xs">{option.percentage}%</span>
              </div>
@@ -228,27 +227,35 @@ export default function PredictionCard({
         {/* Stats Row - All in one line */}
         <div className="flex items-center justify-between mb-2 text-xs">
           <div className="flex items-center space-x-1">
-            <span className="text-secondary">👥</span>
+            <svg className="w-3 h-3 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
             <span className="text-primary font-medium">{formatNumber(participants)}</span>
           </div>
           <div className="flex items-center space-x-1">
-            <span className="text-secondary">💧</span>
+            <svg className="w-3 h-3 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+            </svg>
             <span className="text-primary font-medium">{liquidity}</span>
           </div>
           <div className="flex items-center space-x-1">
-            <span className="text-secondary">📊</span>
+            <svg className="w-3 h-3 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
             <span className="text-primary font-medium">{volume}</span>
           </div>
           <div className="flex items-center space-x-1">
-            <span className="text-secondary">⏰</span>
+            <svg className="w-3 h-3 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
             <span className="text-primary font-medium">{getTimeRemaining(endDate)}</span>
           </div>
           <div className={`flex items-center space-x-1 ${
             priceChange >= 0 ? 'text-[#00FFAE]' : 'text-[#FF3D5A]'
           }`}>
-            <span className="text-xs">
-              {priceChange >= 0 ? '↗' : '↘'}
-            </span>
+            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={priceChange >= 0 ? "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" : "M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"} />
+            </svg>
             <span className="font-medium text-xs">
               {priceChange >= 0 ? '+' : ''}{priceChange.toFixed(1)}%
             </span>
@@ -265,9 +272,8 @@ export default function PredictionCard({
                  disabled={!isConnected}
                  className="bg-secondary hover:bg-tertiary text-primary font-semibold py-1.5 px-2 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed text-xs border-2 border-transparent hover:border-opacity-50"
                  style={{ 
-                   borderColor: option.color,
-                   backgroundColor: index === 0 ? option.color : undefined,
-                   color: index === 0 ? '#000' : undefined
+                   backgroundColor: option.color,
+                   color: '#000'
                  }}
                >
                  {t('market.buy')} {option.label}
@@ -278,12 +284,6 @@ export default function PredictionCard({
 
 
 
-        {/* Connect Wallet Prompt */}
-        {!isConnected && status !== 'ended' && (
-          <div className="text-center mt-1">
-            <span className="text-secondary text-xs">{t('market.connectWallet')}</span>
-          </div>
-        )}
       </div>
 
       {/* Prediction Modal */}

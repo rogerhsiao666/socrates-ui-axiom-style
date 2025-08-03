@@ -825,7 +825,7 @@ export default function Home() {
               </div>
 
               {/* Search and Controls Group */}
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 pr-2">
                 {/* Search Box */}
                 <div className="relative">
                   <input
