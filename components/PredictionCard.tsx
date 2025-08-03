@@ -150,7 +150,7 @@ export default function PredictionCard({
     <>
       <div 
         onClick={handleCardClick}
-        className="group bg-tertiary rounded-xl p-3 hover:bg-secondary transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#00FFAE]/10 cursor-pointer relative overflow-hidden"
+        className="group bg-tertiary rounded-lg p-2 hover:bg-secondary transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-[#00FFAE]/10 cursor-pointer relative overflow-hidden border border-gray-700"
       >
         {/* Hot Badge */}
         {isHot && (
@@ -164,7 +164,7 @@ export default function PredictionCard({
 
         {/* Cover Image (Optional) */}
         {imageUrl && (
-          <div className="relative h-24 mb-3 rounded-lg overflow-hidden">
+          <div className="relative h-20 mb-2 rounded-lg overflow-hidden">
             <img 
               src={imageUrl} 
               alt={title}
@@ -185,7 +185,7 @@ export default function PredictionCard({
             </h3>
             
             {/* Tags */}
-            <div className="flex flex-wrap gap-1 mb-2">
+            <div className="flex flex-wrap gap-1 mb-1">
               {tags.slice(0, 2).map((tag, index) => (
                 <span 
                   key={index}
@@ -198,37 +198,8 @@ export default function PredictionCard({
           </div>
         </div>
 
-        {/* Creator Info */}
-         {creatorName && (
-           <div className="flex items-center space-x-2 mb-3 text-xs">
-             <div className="w-4 h-4 flex items-center justify-center text-xs">
-               {creatorAvatar || '👤'}
-             </div>
-             <span className="text-secondary">{t('market.createdBy')}</span>
-             <span className="text-primary font-medium">{creatorName}</span>
-           </div>
-         )}
-
-        {/* Options */}
-         <div className="mb-3 space-y-2">
-           {marketOptions.map((option, index) => (
-             <div key={option.id} className="flex items-center justify-between">
-               <div className="flex items-center space-x-2 flex-1">
-                 <div className="w-3 h-3 flex items-center justify-center text-xs">
-                   {option.avatar || '•'}
-                 </div>
-                 <span className="text-primary text-xs font-medium truncate">{option.label}</span>
-               </div>
-               <div className="flex items-center space-x-2">
-                 <span className="text-primary font-bold text-sm">{option.percentage}%</span>
-                 <span className="text-secondary text-xs">${option.price.toFixed(2)}</span>
-               </div>
-             </div>
-           ))}
-         </div>
-
         {/* Options Progress Bar */}
-         <div className="mb-3">
+         <div className="mb-2">
            <div className="w-full bg-secondary rounded-full h-2 flex overflow-hidden">
              {marketOptions.map((option, index) => (
                <div 
@@ -243,11 +214,34 @@ export default function PredictionCard({
            </div>
          </div>
 
-        {/* Price & Change */}
-        <div className="flex items-center justify-between mb-3">
-          <div>
-            <span className="text-secondary text-xs">{t('market.currentPrice')}</span>
-            <div className="text-primary font-semibold text-sm">${currentPrice.toFixed(2)}</div>
+        {/* Options inline */}
+         <div className="flex items-center justify-between mb-2">
+           {marketOptions.map((option, index) => (
+             <div key={option.id} className="flex items-center space-x-1">
+               <span className="text-xs">{option.avatar || '•'}</span>
+               <span className="text-primary text-xs font-medium">{option.label}</span>
+               <span className="text-primary font-bold text-xs">{option.percentage}%</span>
+             </div>
+           ))}
+         </div>
+
+        {/* Stats Row - All in one line */}
+        <div className="flex items-center justify-between mb-2 text-xs">
+          <div className="flex items-center space-x-1">
+            <span className="text-secondary">👥</span>
+            <span className="text-primary font-medium">{formatNumber(participants)}</span>
+          </div>
+          <div className="flex items-center space-x-1">
+            <span className="text-secondary">💧</span>
+            <span className="text-primary font-medium">{liquidity}</span>
+          </div>
+          <div className="flex items-center space-x-1">
+            <span className="text-secondary">📊</span>
+            <span className="text-primary font-medium">{volume}</span>
+          </div>
+          <div className="flex items-center space-x-1">
+            <span className="text-secondary">⏰</span>
+            <span className="text-primary font-medium">{getTimeRemaining(endDate)}</span>
           </div>
           <div className={`flex items-center space-x-1 ${
             priceChange >= 0 ? 'text-[#00FFAE]' : 'text-[#FF3D5A]'
@@ -255,43 +249,21 @@ export default function PredictionCard({
             <span className="text-xs">
               {priceChange >= 0 ? '↗' : '↘'}
             </span>
-            <span className="font-semibold text-xs">
+            <span className="font-medium text-xs">
               {priceChange >= 0 ? '+' : ''}{priceChange.toFixed(1)}%
             </span>
           </div>
         </div>
 
-        {/* Stats Row */}
-        <div className="grid grid-cols-3 gap-2 mb-3 text-xs">
-          <div className="text-center">
-            <div className="text-secondary mb-0.5 text-xs">👥</div>
-            <div className="text-primary font-semibold text-xs">{formatNumber(participants)}</div>
-          </div>
-          <div className="text-center">
-            <div className="text-secondary mb-0.5 text-xs">💧</div>
-            <div className="text-primary font-semibold text-xs">{liquidity}</div>
-          </div>
-          <div className="text-center">
-            <div className="text-secondary mb-0.5 text-xs">📊</div>
-            <div className="text-primary font-semibold text-xs">{volume}</div>
-          </div>
-        </div>
-
-        {/* Time Remaining */}
-        <div className="text-center mb-3">
-          <div className="text-secondary text-xs mb-0.5">⏰</div>
-          <div className="text-primary font-semibold text-xs">{getTimeRemaining(endDate)}</div>
-        </div>
-
         {/* Action Buttons */}
          {status !== 'ended' && (
-           <div className="grid gap-1.5" style={{ gridTemplateColumns: `repeat(${Math.min(marketOptions.length, 2)}, 1fr)` }}>
+           <div className="grid gap-1" style={{ gridTemplateColumns: `repeat(${Math.min(marketOptions.length, 2)}, 1fr)` }}>
              {marketOptions.slice(0, 2).map((option, index) => (
                <button
                  key={option.id}
                  onClick={(e) => handleBuyClick(option.id, e)}
                  disabled={!isConnected}
-                 className="bg-secondary hover:bg-tertiary text-primary font-semibold py-2 px-3 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed text-xs border-2 border-transparent hover:border-opacity-50"
+                 className="bg-secondary hover:bg-tertiary text-primary font-semibold py-1.5 px-2 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed text-xs border-2 border-transparent hover:border-opacity-50"
                  style={{ 
                    borderColor: option.color,
                    backgroundColor: index === 0 ? option.color : undefined,
@@ -308,7 +280,7 @@ export default function PredictionCard({
 
         {/* Connect Wallet Prompt */}
         {!isConnected && status !== 'ended' && (
-          <div className="text-center mt-2">
+          <div className="text-center mt-1">
             <span className="text-secondary text-xs">{t('market.connectWallet')}</span>
           </div>
         )}
