@@ -17,6 +17,12 @@
   /* Dark theme (default) */
   .dark {
     @apply bg-black text-white;
+    background-image: 
+      linear-gradient(rgba(0, 255, 174, 0.02) 1px, transparent 1px), 
+      linear-gradient(90deg, rgba(0, 255, 174, 0.02) 1px, transparent 1px),
+      radial-gradient(circle at 20% 20%, rgba(0, 212, 255, 0.05) 0%, transparent 50%), 
+      radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+    background-size: 20px 20px, 20px 20px, 100% 100%, 100% 100%;
   }
   
   .dark .bg-primary {
@@ -84,6 +90,15 @@
 @layer components {
   .btn-primary {
     @apply bg-[#00FFAE] hover:bg-[#00D4AA] text-black font-bold px-4 py-2 rounded-lg transition-all duration-200 hover:scale-105;
+    box-shadow: 0 0 20px rgba(0, 255, 174, 0.3);
+  }
+  
+  .btn-primary:hover {
+    box-shadow: 0 0 30px rgba(0, 255, 174, 0.5), 0 0 60px rgba(0, 255, 174, 0.2);
+  }
+  
+  .btn-primary:active {
+    @apply animate-energy-ripple;
   }
   
   .btn-secondary {
@@ -118,6 +133,31 @@
   
   .dark .prediction-card {
     @apply bg-[#1a1a1a] hover:bg-[#222] hover:shadow-2xl hover:shadow-[#00FFAE]/10;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .dark .prediction-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 174, 0.6), transparent);
+    animation: dataFlow 3s ease-in-out infinite;
+    opacity: 0;
+  }
+  
+  .dark .prediction-card:hover::before {
+    opacity: 1;
+  }
+  
+  .dark .prediction-card:hover {
+    box-shadow: 
+      0 0 30px rgba(0, 255, 174, 0.15),
+      0 0 60px rgba(0, 212, 255, 0.1),
+      0 0 90px rgba(139, 92, 246, 0.05);
   }
   
   .light .prediction-card {
@@ -147,6 +187,19 @@
   .gradient-red {
     @apply bg-gradient-to-r from-[#FF3D5A] to-[#FF6B7A];
   }
+  
+  .gradient-blue {
+    @apply bg-gradient-to-r from-[#00D4FF] to-[#00B8E6];
+  }
+  
+  .gradient-purple {
+    @apply bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED];
+  }
+  
+  .web3-number {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Monaco', 'Consolas', monospace;
+    font-feature-settings: 'tnum' 1;
+  }
 }
 
 @layer utilities {
@@ -162,8 +215,35 @@
     @apply bg-gradient-to-r from-[#FF3D5A] to-[#FF6B7A] bg-clip-text text-transparent;
   }
   
+  .text-gradient-blue {
+    @apply bg-gradient-to-r from-[#00D4FF] to-[#00B8E6] bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-purple {
+    @apply bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] bg-clip-text text-transparent;
+  }
+  
   .glass-effect {
     @apply backdrop-blur-md border transition-all duration-300;
+    position: relative;
+  }
+  
+  .glass-effect::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(45deg, 
+      rgba(0, 255, 174, 0.2), 
+      rgba(0, 212, 255, 0.1), 
+      rgba(139, 92, 246, 0.1),
+      rgba(0, 255, 174, 0.2));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    pointer-events: none;
   }
   
   .dark .glass-effect {
