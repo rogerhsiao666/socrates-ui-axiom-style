@@ -1,0 +1,183 @@
+<svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#000000;stop-opacity:1" />
+      <stop offset="25%" style="stop-color:#001a1a;stop-opacity:1" />
+      <stop offset="75%" style="stop-color:#000a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="whaleBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#00B8E6;stop-opacity:0.7" />
+    </linearGradient>
+    
+    <linearGradient id="alertRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF3D5A;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#E6354F;stop-opacity:0.6" />
+    </linearGradient>
+    
+    <linearGradient id="oceanFlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:0.1" />
+      <stop offset="50%" style="stop-color:#00FFAE;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:0.1" />
+    </linearGradient>
+    
+    <pattern id="wavePattern" width="40" height="20" patternUnits="userSpaceOnUse">
+      <path d="M0 10 Q10 5 20 10 T40 10" fill="none" stroke="#00D4FF" stroke-opacity="0.1" stroke-width="1"/>
+    </pattern>
+    
+    <filter id="whaleGlow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="sonarPulse">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="225" fill="url(#bgGradient5)"/>
+  <rect width="400" height="225" fill="url(#wavePattern)" opacity="0.4"/>
+  
+  <!-- Ocean tracking interface -->
+  <rect x="5" y="5" width="390" height="215" rx="12" fill="#1a1a1a" stroke="#00D4FF" stroke-width="1" stroke-opacity="0.5"/>
+  
+  <!-- Top Sonar Display -->
+  <rect x="15" y="15" width="200" height="120" rx="8" fill="#0a0a0a" stroke="#00D4FF" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="25" y="30" fill="#00D4FF" font-family="monospace" font-size="10" font-weight="bold">🐋 WHALE SONAR - LIVE TRACKING</text>
+  
+  <!-- Sonar circles -->
+  <g transform="translate(115, 85)">
+    <!-- Radar background -->
+    <circle cx="0" cy="0" r="45" fill="none" stroke="#00D4FF" stroke-width="1" stroke-opacity="0.2"/>
+    <circle cx="0" cy="0" r="30" fill="none" stroke="#00D4FF" stroke-width="1" stroke-opacity="0.3"/>
+    <circle cx="0" cy="0" r="15" fill="none" stroke="#00D4FF" stroke-width="1" stroke-opacity="0.4"/>
+    
+    <!-- Radar sweep line -->
+    <line x1="0" y1="0" x2="35" y2="-20" stroke="#00FFAE" stroke-width="2" opacity="0.8">
+      <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 0 0" to="360 0 0" dur="4s" repeatCount="indefinite"/>
+    </line>
+    
+    <!-- Whale positions -->
+    <circle cx="20" cy="-15" r="4" fill="#FF3D5A" filter="url(#sonarPulse)" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="25" y="-12" fill="#FF3D5A" font-family="monospace" font-size="6">1,000 BTC</text>
+    
+    <circle cx="-25" cy="10" r="3" fill="#00FFAE" filter="url(#sonarPulse)" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;0.2;0.6" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="-35" y="15" fill="#00FFAE" font-family="monospace" font-size="6">500 BTC</text>
+    
+    <circle cx="15" cy="25" r="5" fill="#8B5CF6" filter="url(#sonarPulse)" opacity="0.9">
+      <animate attributeName="opacity" values="0.9;0.4;0.9" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="22" y="28" fill="#8B5CF6" font-family="monospace" font-size="6">2,500 BTC</text>
+    
+    <circle cx="-10" cy="-30" r="3" fill="#00D4FF" filter="url(#sonarPulse)" opacity="0.7">
+      <animate attributeName="opacity" values="0.7;0.3;0.7" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+    <text x="-20" y="-25" fill="#00D4FF" font-family="monospace" font-size="6">750 BTC</text>
+  </g>
+  
+  <!-- Whale Activity Feed -->
+  <rect x="225" y="15" width="165" height="120" rx="8" fill="#0a0a0a" stroke="#8B5CF6" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="235" y="30" fill="#8B5CF6" font-family="monospace" font-size="10" font-weight="bold">WHALE ALERTS 🚨</text>
+  
+  <!-- Activity list -->
+  <g transform="translate(235, 40)">
+    <rect x="0" y="0" width="145" height="85" fill="none"/>
+    
+    <!-- Alert 1 -->
+    <circle cx="5" cy="8" r="3" fill="#FF3D5A" opacity="0.8"/>
+    <text x="12" y="11" fill="#FF3D5A" font-family="monospace" font-size="7">🐋 MASSIVE SELL</text>
+    <text x="12" y="19" fill="#FF3D5A" font-family="monospace" font-size="6">1,000 BTC → Binance</text>
+    <text x="12" y="26" fill="#666" font-family="monospace" font-size="5">2m ago</text>
+    
+    <!-- Alert 2 -->
+    <circle cx="5" cy="35" r="3" fill="#00FFAE" opacity="0.8"/>
+    <text x="12" y="38" fill="#00FFAE" font-family="monospace" font-size="7">🏦 INSTITUTION BUY</text>
+    <text x="12" y="46" fill="#00FFAE" font-family="monospace" font-size="6">2,500 BTC ← Cold Storage</text>
+    <text x="12" y="53" fill="#666" font-family="monospace" font-size="5">5m ago</text>
+    
+    <!-- Alert 3 -->
+    <circle cx="5" cy="62" r="3" fill="#00D4FF" opacity="0.8"/>
+    <text x="12" y="65" fill="#00D4FF" font-family="monospace" font-size="7">📊 WHALE CLUSTER</text>
+    <text x="12" y="73" fill="#00D4FF" font-family="monospace" font-size="6">5 whales → $95K resistance</text>
+    <text x="12" y="80" fill="#666" font-family="monospace" font-size="5">7m ago</text>
+  </g>
+  
+  <!-- Bottom Analysis Panel -->
+  <rect x="15" y="145" width="375" height="65" rx="8" fill="#0a0a0a" stroke="#00FFAE" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="25" y="160" fill="#00FFAE" font-family="monospace" font-size="10" font-weight="bold">WHALE FLOW ANALYSIS</text>
+  
+  <!-- Flow visualization -->
+  <g transform="translate(25, 170)">
+    <!-- Inflow -->
+    <text x="0" y="12" fill="#00FFAE" font-family="monospace" font-size="8">INFLOW (24H)</text>
+    <rect x="0" y="15" width="100" height="8" fill="#1a1a1a" rx="4"/>
+    <rect x="0" y="15" width="75" height="8" fill="#00FFAE" rx="4" opacity="0.8"/>
+    <text x="0" y="32" fill="#00FFAE" font-family="monospace" font-size="10" font-weight="bold">+15,450 BTC</text>
+    
+    <!-- Outflow -->
+    <text x="130" y="12" fill="#FF3D5A" font-family="monospace" font-size="8">OUTFLOW (24H)</text>
+    <rect x="130" y="15" width="100" height="8" fill="#1a1a1a" rx="4"/>
+    <rect x="130" y="15" width="45" height="8" fill="#FF3D5A" rx="4" opacity="0.8"/>
+    <text x="130" y="32" fill="#FF3D5A" font-family="monospace" font-size="10" font-weight="bold">-8,750 BTC</text>
+    
+    <!-- Net flow -->
+    <text x="260" y="12" fill="#00D4FF" font-family="monospace" font-size="8">NET FLOW</text>
+    <text x="260" y="25" fill="#00FFAE" font-family="monospace" font-size="14" font-weight="bold">+6,700 BTC</text>
+    <text x="260" y="35" fill="#00FFAE" font-family="monospace" font-size="8">ACCUMULATION</text>
+  </g>
+  
+  <!-- Exchange Flow Bars -->
+  <g transform="translate(25, 195)">
+    <text x="0" y="8" fill="#8B5CF6" font-family="monospace" font-size="7">Exchange Distribution:</text>
+    
+    <!-- Binance -->
+    <rect x="0" y="12" width="60" height="4" fill="#00FFAE" opacity="0.7"/>
+    <text x="65" y="17" fill="#00FFAE" font-family="monospace" font-size="6">Binance 35%</text>
+    
+    <!-- Coinbase -->
+    <rect x="120" y="12" width="40" height="4" fill="#00D4FF" opacity="0.7"/>
+    <text x="165" y="17" fill="#00D4FF" font-family="monospace" font-size="6">Coinbase 23%</text>
+    
+    <!-- Other -->
+    <rect x="230" y="12" width="30" height="4" fill="#8B5CF6" opacity="0.7"/>
+    <text x="265" y="17" fill="#8B5CF6" font-family="monospace" font-size="6">Others 42%</text>
+  </g>
+  
+  <!-- Streamer Whale Avatar -->
+  <rect x="320" y="148" width="60" height="40" rx="6" fill="url(#whaleBlue)" stroke="#00D4FF" stroke-width="2"/>
+  <text x="350" y="173" fill="#000" font-size="20" text-anchor="middle">🐋</text>
+  
+  <!-- Live Indicator -->
+  <rect x="15" y="215" width="40" height="18" rx="9" fill="#FF3D5A"/>
+  <text x="35" y="227" fill="#fff" font-family="monospace" font-size="10" font-weight="bold" text-anchor="middle">LIVE</text>
+  
+  <!-- Viewer Count -->
+  <text x="65" y="227" fill="#00D4FF" font-family="monospace" font-size="10">2,134 viewers</text>
+  
+  <!-- Tracking signals -->
+  <circle cx="380" cy="25" r="4" fill="#00FFAE" filter="url(#whaleGlow)" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="360" cy="40" r="3" fill="#FF3D5A" filter="url(#whaleGlow)" opacity="0.9">
+    <animate attributeName="opacity" values="0.9;0.3;0.9" dur="1.6s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="340" cy="55" r="2" fill="#8B5CF6" filter="url(#whaleGlow)" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;0.4;0.7" dur="1.9s" repeatCount="indefinite"/>
+  </circle>
+</svg>

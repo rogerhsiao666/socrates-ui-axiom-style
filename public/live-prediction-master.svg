@@ -1,0 +1,157 @@
+<svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#000000;stop-opacity:1" />
+      <stop offset="25%" style="stop-color:#1a0a1a;stop-opacity:1" />
+      <stop offset="75%" style="stop-color:#0a0a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="mysticalPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:0.7" />
+    </linearGradient>
+    
+    <linearGradient id="oracleGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00FFAE;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#00D4AA;stop-opacity:0.6" />
+    </linearGradient>
+    
+    <radialGradient id="crystalBall" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:0.3" />
+      <stop offset="70%" style="stop-color:#00D4FF;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#00FFAE;stop-opacity:0.1" />
+    </radialGradient>
+    
+    <pattern id="hexGrid" width="25" height="22" patternUnits="userSpaceOnUse">
+      <polygon points="12.5,0 22,6.5 22,15.5 12.5,22 3,15.5 3,6.5" fill="none" stroke="#8B5CF6" stroke-opacity="0.1" stroke-width="0.5"/>
+    </pattern>
+    
+    <filter id="mysticalGlow">
+      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="225" fill="url(#bgGradient3)"/>
+  <rect width="400" height="225" fill="url(#hexGrid)" opacity="0.4"/>
+  
+  <!-- Analysis Chamber -->
+  <rect x="10" y="10" width="380" height="205" rx="12" fill="#1a1a1a" stroke="#8B5CF6" stroke-width="1" stroke-opacity="0.5"/>
+  
+  <!-- Top Analysis Screen -->
+  <rect x="20" y="20" width="360" height="90" rx="6" fill="#0a0a0a" stroke="#8B5CF6" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="30" y="35" fill="#8B5CF6" font-family="monospace" font-size="10" font-weight="bold">PREDICTION ANALYSIS MATRIX</text>
+  
+  <!-- Prediction Probability Chart -->
+  <g transform="translate(30, 45)">
+    <!-- Background grid -->
+    <defs>
+      <pattern id="analysisGrid" width="20" height="10" patternUnits="userSpaceOnUse">
+        <path d="M 20 0 L 0 0 0 10" fill="none" stroke="#8B5CF6" stroke-opacity="0.1" stroke-width="0.3"/>
+      </pattern>
+    </defs>
+    <rect x="0" y="0" width="340" height="60" fill="url(#analysisGrid)"/>
+    
+    <!-- Market predictions -->
+    <text x="5" y="15" fill="#00FFAE" font-family="monospace" font-size="8">BTC >$100K: 78.5%</text>
+    <rect x="5" y="18" width="78" height="4" fill="#00FFAE" opacity="0.8" rx="2"/>
+    
+    <text x="5" y="30" fill="#00D4FF" font-family="monospace" font-size="8">ETH >$4K: 65.2%</text>
+    <rect x="5" y="33" width="65" height="4" fill="#00D4FF" opacity="0.8" rx="2"/>
+    
+    <text x="5" y="45" fill="#FF3D5A" font-family="monospace" font-size="8">Market Crash: 23.1%</text>
+    <rect x="5" y="48" width="23" height="4" fill="#FF3D5A" opacity="0.8" rx="2"/>
+    
+    <!-- Technical indicators -->
+    <text x="180" y="15" fill="#8B5CF6" font-family="monospace" font-size="8">RSI: OVERBOUGHT</text>
+    <text x="180" y="25" fill="#00FFAE" font-family="monospace" font-size="8">MACD: BULLISH</text>
+    <text x="180" y="35" fill="#00D4FF" font-family="monospace" font-size="8">VOL: HIGH</text>
+    <text x="180" y="45" fill="#FF3D5A" font-family="monospace" font-size="8">FEAR: 25/100</text>
+    
+    <!-- AI Confidence meter -->
+    <text x="280" y="15" fill="#8B5CF6" font-family="monospace" font-size="8">AI CONFIDENCE</text>
+    <circle cx="320" cy="35" r="15" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-opacity="0.3"/>
+    <circle cx="320" cy="35" r="15" fill="none" stroke="#00FFAE" stroke-width="2" stroke-dasharray="70" stroke-dashoffset="20" transform="rotate(-90 320 35)"/>
+    <text x="320" y="38" fill="#00FFAE" font-family="monospace" font-size="10" font-weight="bold" text-anchor="middle">87%</text>
+  </g>
+  
+  <!-- Bottom Dual Screen Layout -->
+  <!-- Left: Market Sentiment -->
+  <rect x="20" y="120" width="175" height="80" rx="6" fill="#0a0a0a" stroke="#00D4FF" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="30" y="135" fill="#00D4FF" font-family="monospace" font-size="10" font-weight="bold">MARKET SENTIMENT</text>
+  
+  <!-- Sentiment visualization -->
+  <g transform="translate(30, 145)">
+    <!-- Fear & Greed Index -->
+    <arc cx="50" cy="40" r="30" fill="none" stroke="#FF3D5A" stroke-width="4" stroke-opacity="0.6"/>
+    <circle cx="50" cy="40" r="25" fill="url(#crystalBall)" opacity="0.6"/>
+    <text x="50" y="35" fill="#8B5CF6" font-family="monospace" font-size="8" font-weight="bold" text-anchor="middle">FEAR</text>
+    <text x="50" y="45" fill="#8B5CF6" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle">25</text>
+    
+    <!-- Social indicators -->
+    <text x="90" y="25" fill="#00FFAE" font-family="monospace" font-size="8">📊 Reddit: BULLISH</text>
+    <text x="90" y="35" fill="#00D4FF" font-family="monospace" font-size="8">🐦 Twitter: NEUTRAL</text>
+    <text x="90" y="45" fill="#FF3D5A" font-family="monospace" font-size="8">📰 News: BEARISH</text>
+    <text x="90" y="55" fill="#8B5CF6" font-family="monospace" font-size="8">🔍 Search: HIGH</text>
+  </g>
+  
+  <!-- Right: Prediction Model -->
+  <rect x="205" y="120" width="175" height="80" rx="6" fill="#0a0a0a" stroke="#00FFAE" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="215" y="135" fill="#00FFAE" font-family="monospace" font-size="10" font-weight="bold">NEURAL NETWORK</text>
+  
+  <!-- AI Network visualization -->
+  <g transform="translate(215, 145)">
+    <!-- Neural nodes -->
+    <circle cx="30" cy="15" r="4" fill="#8B5CF6" opacity="0.8"/>
+    <circle cx="30" cy="35" r="4" fill="#8B5CF6" opacity="0.8"/>
+    <circle cx="30" cy="55" r="4" fill="#8B5CF6" opacity="0.8"/>
+    
+    <circle cx="80" cy="10" r="4" fill="#00D4FF" opacity="0.8"/>
+    <circle cx="80" cy="25" r="4" fill="#00D4FF" opacity="0.8"/>
+    <circle cx="80" cy="40" r="4" fill="#00D4FF" opacity="0.8"/>
+    <circle cx="80" cy="55" r="4" fill="#00D4FF" opacity="0.8"/>
+    
+    <circle cx="130" cy="25" r="4" fill="#00FFAE" opacity="0.8"/>
+    <circle cx="130" cy="45" r="4" fill="#00FFAE" opacity="0.8"/>
+    
+    <!-- Neural connections -->
+    <line x1="34" y1="15" x2="76" y2="10" stroke="#8B5CF6" stroke-width="1" opacity="0.4"/>
+    <line x1="34" y1="35" x2="76" y2="25" stroke="#8B5CF6" stroke-width="1" opacity="0.4"/>
+    <line x1="34" y1="55" x2="76" y2="40" stroke="#8B5CF6" stroke-width="1" opacity="0.4"/>
+    <line x1="84" y1="25" x2="126" y2="25" stroke="#00D4FF" stroke-width="1" opacity="0.4"/>
+    <line x1="84" y1="40" x2="126" y2="45" stroke="#00D4FF" stroke-width="1" opacity="0.4"/>
+    
+    <text x="150" y="30" fill="#00FFAE" font-family="monospace" font-size="8">OUTPUT:</text>
+    <text x="150" y="40" fill="#00FFAE" font-family="monospace" font-size="8">BULLISH</text>
+    <text x="150" y="50" fill="#00FFAE" font-family="monospace" font-size="8">87.3%</text>
+  </g>
+  
+  <!-- Streamer Crystal Ball -->
+  <circle cx="350" cy="60" r="25" fill="url(#crystalBall)" stroke="#8B5CF6" stroke-width="2" opacity="0.8"/>
+  <text x="350" y="68" fill="#8B5CF6" font-size="20" text-anchor="middle">🔮</text>
+  
+  <!-- Live Indicator -->
+  <rect x="20" y="205" width="40" height="18" rx="9" fill="#FF3D5A"/>
+  <text x="40" y="217" fill="#fff" font-family="monospace" font-size="10" font-weight="bold" text-anchor="middle">LIVE</text>
+  
+  <!-- Viewer Count -->
+  <text x="70" y="217" fill="#8B5CF6" font-family="monospace" font-size="10">3,456 viewers</text>
+  
+  <!-- Mystical Effects -->
+  <circle cx="100" cy="50" r="2" fill="#8B5CF6" filter="url(#mysticalGlow)" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0.2;0.8" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="300" cy="80" r="3" fill="#00D4FF" filter="url(#mysticalGlow)" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;0.1;0.6" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="250" cy="160" r="2" fill="#00FFAE" filter="url(#mysticalGlow)" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;0.3;0.7" dur="2s" repeatCount="indefinite"/>
+  </circle>
+</svg>

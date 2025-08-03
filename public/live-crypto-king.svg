@@ -1,0 +1,97 @@
+<svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Web3 Brand Gradients -->
+    <linearGradient id="bgGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#000000;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0a0a0a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="chartGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00FFAE;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#00D4AA;stop-opacity:0.6" />
+    </linearGradient>
+    
+    <linearGradient id="accentBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#00B8E6;stop-opacity:0.6" />
+    </linearGradient>
+    
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#00FFAE" stroke-opacity="0.1" stroke-width="0.5"/>
+    </pattern>
+    
+    <!-- Glow Filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="225" fill="url(#bgGradient1)"/>
+  <rect width="400" height="225" fill="url(#grid)" opacity="0.3"/>
+  
+  <!-- Main Trading Interface -->
+  <rect x="20" y="20" width="360" height="185" rx="8" fill="#1a1a1a" stroke="#00FFAE" stroke-width="1" stroke-opacity="0.3"/>
+  
+  <!-- Chart Area -->
+  <rect x="30" y="30" width="200" height="120" rx="4" fill="#0a0a0a" stroke="#00FFAE" stroke-width="1" stroke-opacity="0.2"/>
+  
+  <!-- BTC Price Display -->
+  <text x="40" y="50" fill="#00FFAE" font-family="monospace" font-size="12" font-weight="bold">BTC/USDT</text>
+  <text x="40" y="68" fill="#00FFAE" font-family="monospace" font-size="16" font-weight="bold">$94,750.00</text>
+  <text x="40" y="85" fill="#00FFAE" font-family="monospace" font-size="10">+5.7% ↗</text>
+  
+  <!-- Candlestick Chart -->
+  <g transform="translate(50, 90)">
+    <rect x="0" y="20" width="3" height="25" fill="#00FFAE"/>
+    <rect x="8" y="15" width="3" height="30" fill="#FF3D5A"/>
+    <rect x="16" y="10" width="3" height="35" fill="#00FFAE"/>
+    <rect x="24" y="25" width="3" height="20" fill="#00FFAE"/>
+    <rect x="32" y="5" width="3" height="40" fill="#00FFAE"/>
+    <rect x="40" y="18" width="3" height="27" fill="#FF3D5A"/>
+    <rect x="48" y="12" width="3" height="33" fill="#00FFAE"/>
+    <rect x="56" y="8" width="3" height="37" fill="#00FFAE"/>
+    <rect x="64" y="22" width="3" height="23" fill="#FF3D5A"/>
+    <rect x="72" y="3" width="3" height="42" fill="#00FFAE"/>
+  </g>
+  
+  <!-- Order Book -->
+  <rect x="250" y="30" width="120" height="120" rx="4" fill="#0a0a0a" stroke="#00D4FF" stroke-width="1" stroke-opacity="0.2"/>
+  <text x="260" y="50" fill="#00D4FF" font-family="monospace" font-size="10" font-weight="bold">ORDER BOOK</text>
+  
+  <!-- Order Book Data -->
+  <g transform="translate(260, 60)">
+    <text x="0" y="12" fill="#FF3D5A" font-family="monospace" font-size="8">94,800  2.45</text>
+    <text x="0" y="22" fill="#FF3D5A" font-family="monospace" font-size="8">94,750  1.87</text>
+    <text x="0" y="32" fill="#FF3D5A" font-family="monospace" font-size="8">94,700  3.21</text>
+    <text x="0" y="45" fill="#00FFAE" font-family="monospace" font-size="8">94,650  1.95</text>
+    <text x="0" y="55" fill="#00FFAE" font-family="monospace" font-size="8">94,600  2.76</text>
+    <text x="0" y="65" fill="#00FFAE" font-family="monospace" font-size="8">94,550  4.12</text>
+  </g>
+  
+  <!-- Streamer Camera -->
+  <rect x="320" y="160" width="50" height="35" rx="4" fill="url(#chartGreen)" stroke="#00FFAE" stroke-width="2"/>
+  <text x="345" y="182" fill="#000" font-size="20" text-anchor="middle">👑</text>
+  
+  <!-- Live Indicator -->
+  <rect x="30" y="160" width="40" height="18" rx="9" fill="#FF3D5A"/>
+  <text x="50" y="172" fill="#fff" font-family="monospace" font-size="10" font-weight="bold" text-anchor="middle">LIVE</text>
+  
+  <!-- Viewer Count -->
+  <text x="80" y="172" fill="#00FFAE" font-family="monospace" font-size="10">2,847 viewers</text>
+  
+  <!-- Web3 Glow Effects -->
+  <circle cx="50" cy="50" r="3" fill="#00FFAE" filter="url(#glow)" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0.4;0.8" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="300" cy="60" r="2" fill="#00D4FF" filter="url(#glow)" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;0.3;0.6" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+</svg>
