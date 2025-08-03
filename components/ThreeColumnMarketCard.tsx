@@ -69,12 +69,6 @@ export default function ThreeColumnMarketCard({ market, onCardClick }: ThreeColu
           {market.status.replace('_', ' ').toUpperCase()}
         </div>
         
-        {/* Hot Badge */}
-        {market.isHot && (
-          <div className="absolute top-3 left-3 px-2 py-1 rounded-full text-xs font-medium bg-red-500/20 text-red-400 border border-red-500/30">
-            🔥 HOT
-          </div>
-        )}
         
         {/* Icon */}
         <div className="absolute bottom-3 left-3 w-8 h-8 bg-gray-900/80 rounded-full flex items-center justify-center text-lg">

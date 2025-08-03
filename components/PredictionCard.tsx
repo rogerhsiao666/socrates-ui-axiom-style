@@ -152,12 +152,6 @@ export default function PredictionCard({
         onClick={handleCardClick}
         className="group bg-tertiary rounded-lg p-2 hover:bg-secondary transition-all duration-300 hover:shadow-xl hover:shadow-[#00FFAE]/10 cursor-pointer relative overflow-hidden"
       >
-        {/* Hot Badge */}
-        {isHot && (
-          <div className="absolute top-2 left-2 bg-gradient-to-r from-[#FF3D5A] to-[#FF6B7A] text-white text-xs font-bold px-2 py-1 rounded-full z-10">
-            🔥 HOT
-          </div>
-        )}
 
 
 
