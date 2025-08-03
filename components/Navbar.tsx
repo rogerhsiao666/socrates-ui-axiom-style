@@ -44,80 +44,83 @@ const Navbar = () => {
               {t('nav.myMarkets')}
             </Link>
             
-            {/* Wallet Connection */}
-            {isConnected ? (
-              <div className="relative">
-                <button
-                  onClick={() => setShowWalletMenu(!showWalletMenu)}
-                  className="flex items-center space-x-2 bg-accent-green/20 border border-accent-green/30 text-accent-green px-4 py-2 rounded-lg hover:bg-accent-green/30 transition-colors"
-                >
-                  <div className="w-2 h-2 bg-accent-green rounded-full" />
-                  <span className="font-medium">{formatAddress(address!)}</span>
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                
-                {showWalletMenu && (
-                  <div className="absolute right-0 mt-2 w-48 bg-tertiary border border-secondary rounded-lg shadow-xl z-50">
-                    <div className="p-3 border-b border-secondary">
-                      <p className="text-xs text-secondary">{t('nav.wallet.address')}</p>
-                      <p className="text-sm text-primary font-mono">{formatAddress(address!)}</p>
+            {/* Control Group: Wallet, Theme, Language with 8px spacing */}
+            <div className="flex items-center space-x-2">
+              {/* Wallet Connection */}
+              {isConnected ? (
+                <div className="relative">
+                  <button
+                    onClick={() => setShowWalletMenu(!showWalletMenu)}
+                    className="flex items-center space-x-2 bg-accent-green/20 border border-accent-green/30 text-accent-green px-4 py-2 rounded-lg hover:bg-accent-green/30 transition-colors"
+                  >
+                    <div className="w-2 h-2 bg-accent-green rounded-full" />
+                    <span className="font-medium">{formatAddress(address!)}</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  
+                  {showWalletMenu && (
+                    <div className="absolute right-0 mt-2 w-48 bg-tertiary border border-secondary rounded-lg shadow-xl z-50">
+                      <div className="p-3 border-b border-secondary">
+                        <p className="text-xs text-secondary">{t('nav.wallet.address')}</p>
+                        <p className="text-sm text-primary font-mono">{formatAddress(address!)}</p>
+                      </div>
+                      <button
+                        onClick={() => {
+                          disconnectWallet()
+                          setShowWalletMenu(false)
+                        }}
+                        className="w-full text-left px-3 py-2 text-sm text-red-400 hover:bg-secondary transition-colors"
+                      >
+                        {t('nav.wallet.disconnect')}
+                      </button>
                     </div>
-                    <button
-                      onClick={() => {
-                        disconnectWallet()
-                        setShowWalletMenu(false)
-                      }}
-                      className="w-full text-left px-3 py-2 text-sm text-red-400 hover:bg-secondary transition-colors"
-                    >
-                      {t('nav.wallet.disconnect')}
-                    </button>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <button
-                onClick={connectWallet}
-                disabled={isConnecting}
-                className="btn-primary"
+                  )}
+                </div>
+              ) : (
+                <button
+                  onClick={connectWallet}
+                  disabled={isConnecting}
+                  className="btn-primary"
+                >
+                  {isConnecting ? (
+                    <>
+                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      <span>{t('nav.wallet.connecting')}</span>
+                    </>
+                  ) : (
+                    <span>{t('nav.connectWallet')}</span>
+                  )}
+                </button>
+              )}
+              
+              {/* Theme Toggle - Icon only, larger */}
+              <button 
+                onClick={toggleTheme}
+                className="bg-tertiary hover:bg-secondary text-primary px-3 py-2 rounded-lg font-medium transition-all duration-200 hover:scale-105 text-sm border border-secondary flex items-center justify-center"
+                title={t('theme.toggle')}
               >
-                {isConnecting ? (
-                  <>
-                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    <span>{t('nav.wallet.connecting')}</span>
-                  </>
+                {theme === 'dark' ? (
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
                 ) : (
-                  <span>{t('nav.connectWallet')}</span>
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                  </svg>
                 )}
               </button>
-            )}
-            
-            {/* Theme Toggle - Icon only, larger */}
-            <button 
-              onClick={toggleTheme}
-              className="bg-tertiary hover:bg-secondary text-primary px-3 py-2 rounded-lg font-medium transition-all duration-200 hover:scale-105 text-sm border border-secondary flex items-center justify-center"
-              title={t('theme.toggle')}
-            >
-              {theme === 'dark' ? (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-              ) : (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                </svg>
-              )}
-            </button>
-            
-            {/* Language Toggle */}
-            <button 
-              onClick={toggleLanguage}
-              className="bg-tertiary hover:bg-secondary text-primary px-3 py-2 rounded-lg font-medium transition-all duration-200 hover:scale-105 text-sm border border-secondary flex items-center space-x-1"
-            >
-              <span>{language === 'en' ? '🇺🇸' : '🇨🇳'}</span>
-              <span>{language.toUpperCase()}</span>
-            </button>
+              
+              {/* Language Toggle */}
+              <button 
+                onClick={toggleLanguage}
+                className="bg-tertiary hover:bg-secondary text-primary px-3 py-2 rounded-lg font-medium transition-all duration-200 hover:scale-105 text-sm border border-secondary flex items-center space-x-1"
+              >
+                <span>{language === 'en' ? '🇺🇸' : '🇨🇳'}</span>
+                <span>{language.toUpperCase()}</span>
+              </button>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}

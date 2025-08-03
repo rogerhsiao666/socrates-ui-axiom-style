@@ -99,7 +99,8 @@
   }
   
   .card {
-    @apply rounded-2xl border p-6 transition-all duration-200;
+    @apply rounded-2xl border transition-all duration-200;
+    padding: 1rem;
   }
   
   .dark .card {
@@ -111,7 +112,8 @@
   }
   
   .prediction-card {
-    @apply rounded-2xl p-4 transition-all duration-300 cursor-pointer;
+    @apply rounded-2xl transition-all duration-300 cursor-pointer;
+    padding: 1rem;
   }
   
   .dark .prediction-card {
@@ -148,6 +150,10 @@
 }
 
 @layer utilities {
+  .p-2 {
+    padding: 1rem;
+  }
+  
   .text-gradient {
     @apply bg-gradient-to-r from-[#00FFAE] to-[#00D4AA] bg-clip-text text-transparent;
   }

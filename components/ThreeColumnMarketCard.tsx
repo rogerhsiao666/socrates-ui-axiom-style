@@ -83,7 +83,7 @@ export default function ThreeColumnMarketCard({ market, onCardClick }: ThreeColu
       </div>
 
       {/* Card Content */}
-      <div className="p-4 space-y-3">
+      <div className="p-2 space-y-3">
         {/* Category */}
         <div className={`inline-flex px-2 py-1 rounded-md text-xs font-medium border ${getCategoryColor(market.category)}`}>
           {market.category}
