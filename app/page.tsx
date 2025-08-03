@@ -1275,13 +1275,13 @@ export default function Home() {
                   { id: 5, title: 'WhaleWatcher - 巨鲸动向', topic: '监控大户资金流向', viewers: 2134, avatar: '🐋', bgImage: '/live-whale-watcher.svg', streamType: 'multi-viewer' },
                   { id: 6, title: 'NewsTrader - 消息面分析', topic: '重大新闻对市场的影响', viewers: 987, avatar: '📰', bgImage: '/live-news-trader.svg', streamType: 'co-stream' }
                 ].map((stream) => (
-                  <div key={stream.id} className="bg-[#0F0F0F] rounded-lg overflow-hidden hover:bg-[#1F1F1F] transition-all duration-300 cursor-pointer group animate-web3-glow">
+                  <div key={stream.id} className="bg-[#0F0F0F] rounded-lg overflow-hidden hover:bg-[#1F1F1F] transition-colors duration-300 cursor-pointer group">
                     <div className="aspect-video relative overflow-hidden">
                       {/* Brand-consistent SVG Background */}
                       <img 
                         src={stream.bgImage} 
                         alt={stream.title}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        className="w-full h-full object-cover"
                       />
                       
                       {/* LIVE Indicator */}
@@ -1297,7 +1297,7 @@ export default function Home() {
                       
                       {/* Hover Play Button */}
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                        <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center backdrop-blur-sm animate-energy-ripple">
+                        <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center backdrop-blur-sm">
                           <div className="w-0 h-0 border-l-8 border-r-0 border-t-6 border-b-6 border-l-white border-t-transparent border-b-transparent ml-1"></div>
                         </div>
                       </div>
